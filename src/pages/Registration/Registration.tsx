@@ -8,13 +8,16 @@ import "../../shared/styles/global.scss";
 import styles from "./styles.module.scss";
 
 export const Registration = () => {
+  const categories = ["Россия", "Другие страны"];
+  const [activeCategory, setActiveCategory] = useState<string>("Россия");
+
   return (
     <div className={`${styles.container}`}>
       <Logo margin="mt-14 mb-24" />
       <div className={styles.container__form}>
         <span className="text-4xl font-extralight mt-8">Регистрация</span>
         <div className="flex flex-row items-center mt-2 gap-2">
-          <span className=" text-primary-grey text-lg">Уже в системе?</span>
+          <span className="text-primary-grey text-lg">Уже в системе?</span>
           <TextButton
             text="Войдите"
             href="/login"
@@ -23,8 +26,19 @@ export const Registration = () => {
           />
         </div>
         <div className={styles.container__tabs}>
-          <button className={styles.container__tab}>Россия</button>
-          <button className={styles.container__tab}>Другие страны</button>
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`bg-[#F8F8F8] rounded-md mt-4 px-9 py-4 ${
+                activeCategory === category
+                  ? "bg-[#FFFFFF] border-[1px] border-black"
+                  : ""
+              }`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
         </div>
         <div className="flex flex-col mt-6">
           <Input placeholder="Ф.И.О." type="text" />
