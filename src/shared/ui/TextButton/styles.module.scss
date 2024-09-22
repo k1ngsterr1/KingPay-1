@@ -1,0 +1,9 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/respondTo";
+
+.button {
+  background-color: transparent;
+  outline: none;
+  @apply text-base;
+  @apply text-primary-grey;
+}
