@@ -36,8 +36,12 @@ export const Login = () => {
           <Input placeholder="Пароль" type="password" margin="mt-6" />
           <PrimaryButton text="Войти" margin="mt-4" />
           <div className=" flex flex-row items-center justify-between w-[100%] mt-4 ">
-            <TextButton text="Регистрация" href="/registration" />
-            <TextButton text="Забыли пароль" />
+            <TextButton
+              text="Регистрация"
+              href="/registration"
+              color="text-[#6A6A6A]"
+            />
+            <TextButton text="Забыли пароль" color="text-[#6A6A6A]" />
           </div>
         </div>
         <div className="">
