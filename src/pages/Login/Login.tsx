@@ -11,12 +11,12 @@ import styles from "./styles.module.scss";
 import "@shared/styles/global.scss";
 
 export const Login = () => {
-  // const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
-  // const onCaptchaChange = (value: string | null) => {
-  //   console.log("Captcha value:", value);
-  //   setCaptchaValue(value);
-  // };
+  const onCaptchaChange = (value: string | null) => {
+    console.log("Captcha value:", value);
+    setCaptchaValue(value);
+  };
 
   return (
     <div className={styles.container}>
@@ -41,11 +41,18 @@ export const Login = () => {
               href="/registration"
               color="text-[#6A6A6A]"
             />
-            <TextButton text="Забыли пароль" color="text-[#6A6A6A]" />
+            <TextButton
+              text="Забыли пароль"
+              color="text-[#6A6A6A]"
+              href="/forgot-password"
+            />
           </div>
         </div>
         <div className="">
-          {/* <ReCAPTCHA sitekey="ВАШ_SITE_KEY" onChange={onCaptchaChange} /> */}
+          {/* <ReCAPTCHA
+            sitekey="6LfsOUwqAAAAAPgErf2L1Gw1M2uR4tir2RIaEwvm"
+            onChange={onCaptchaChange}
+          /> */}
         </div>
       </div>
     </div>
