@@ -1,4 +1,3 @@
-import React from "react";
 import { Logo } from "@shared/ui/Logo";
 import { PaymentMethodCard } from "@entities/payment-method-card";
 
@@ -7,6 +6,10 @@ import styles from "./styles.module.scss";
 import { bankCards } from "@shared/lib/content/paymentMethodsContent";
 import { onlineWallets } from "@shared/lib/content/paymentMethodsContent";
 import { cryptoCurrencies } from "@shared/lib/content/paymentMethodsContent";
+import { smsPayment } from "@shared/lib/content/paymentMethodsContent";
+
+import protectedIcon from "@assets/payment/protected.svg";
+import supportIcon from "@assets/payment/support.svg";
 
 export const PaymentMethods = () => {
   return (
@@ -55,6 +58,32 @@ export const PaymentMethods = () => {
             margin="mt-10"
             cards={cryptoCurrencies}
           />
+          <PaymentMethodCard
+            title="SMS-платежи"
+            margin="mt-10"
+            cards={smsPayment}
+          />
+        </div>
+
+        <div className="mt-12 flex flex-row items-center justify-between w-[90%] mb-12">
+          <div className=" flex flex-row gap-3">
+            <img src={protectedIcon} alt="Protected Icon" />
+            <span
+              className="w-[60%] text-[#B7B7B7] text-xl"
+              style={{ fontWeight: 400 }}
+            >
+              Данные защищены по стандарту PCI DSS
+            </span>
+          </div>
+          <div className=" flex gap-3 flex-row border-[1px] w-64 px-4 py-2 border-[#B7B7B7] rounded-lg">
+            <img src={supportIcon} alt="Protected Icon" />
+            <span
+              className="w-[60%] text-[#B7B7B7] text-xl"
+              style={{ fontWeight: 400 }}
+            >
+              Техническая поддержка
+            </span>
+          </div>
         </div>
       </div>
     </div>

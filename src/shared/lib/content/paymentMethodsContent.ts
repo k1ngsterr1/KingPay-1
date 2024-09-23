@@ -17,6 +17,11 @@ import dogecoin from "@assets/payment/dogecoin.svg";
 import tether from "@assets/payment/tether.svg";
 import tonecoin from "@assets/payment/tonecoin.svg";
 
+import megafon from "@assets/payment/megafon.svg";
+import beeline from "@assets/payment/beeline.svg";
+import tele2 from "@assets/payment/tele2.svg";
+import mts from "@assets/payment/mts.svg";
+
 export const bankCards = [
   { img: visa, name: "VISA", margin: "mt-8" },
   { img: mastercard, name: "Mastercard", margin: "mt-6" },
@@ -40,4 +45,11 @@ export const cryptoCurrencies = [
   { img: dogecoin, name: "Dogecoin", margin: "mt-5" },
   { img: tether, name: "Tether", margin: "mt-5" },
   { img: tonecoin, name: "Tonecoin", margin: "mt-5" },
+];
+
+export const smsPayment = [
+  { img: megafon, name: "Мегафон", margin: "mt-5" },
+  { img: beeline, name: "Билайн", margin: "mt-5" },
+  { img: tele2, name: "Теле 2", margin: "mt-5" },
+  { img: mts, name: "МТС", margin: "mt-5" },
 ];
