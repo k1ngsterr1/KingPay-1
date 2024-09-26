@@ -18,5 +18,3 @@ export const Sidebar = () => {
     </div>
   );
 };
-
-// https://trafogram.com
