@@ -41,11 +41,11 @@
 
   @include respond-to("lg") {
     width: clamp(75px, 150 / 1200 * 100vw, 300px);
-    height: clamp(20px, 40 / 1200 * 100vw, 80px);
+    height: clamp(15px, 30 / 1200 * 100vw, 60px);
   }
 
   @include respond-to("md") {
-    width: clamp(100px, 200 / 992 * 100vw, 400px);
-    height: clamp(20px, 40 / 992 * 100vw, 80px);
+    width: clamp(75px, 150 / 992 * 100vw, 300px);
+    height: clamp(15px, 30 / 992 * 100vw, 60px);
   }
 }

@@ -1,0 +1,13 @@
+.tab_btn {
+  transition: 0.3s all;
+
+  &:hover &__icon {
+    transition: 0.3s all;
+    @apply text-primary;
+  }
+
+  &:hover &__text {
+    transition: 0.3s all;
+    @apply text-primary;
+  }
+}
