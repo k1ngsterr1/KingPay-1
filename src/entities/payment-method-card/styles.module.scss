@@ -1,0 +1,43 @@
+@import "../../shared/styles/breakpoints";
+@import "../../shared/styles/respondTo";
+
+.card {
+  width: clamp(40px, 80 / 992 * 100vw, 160px);
+  height: clamp(40px, 80 / 992 * 100vw, 160px);
+
+  @include respond-to("lg") {
+    width: clamp(40px, 80 / 1200 * 100vw, 160px);
+    height: clamp(40px, 80 / 1200 * 100vw, 160px);
+  }
+
+  @include respond-to("xl") {
+    width: clamp(40px, 80 / 1360 * 100vw, 160px);
+    height: clamp(40px, 80 / 1360 * 100vw, 160px);
+  }
+
+  @include respond-to("2xl") {
+    width: clamp(40px, 80 / 1520 * 100vw, 160px);
+    height: clamp(40px, 80 / 1520 * 100vw, 160px);
+  }
+
+  @include respond-to("3xl") {
+    width: clamp(40px, 80 / 1680 * 100vw, 160px);
+    height: clamp(40px, 80 / 1680 * 100vw, 160px);
+  }
+
+  @include respond-to("4xl") {
+    width: clamp(40px, 80 / 1920 * 100vw, 160px);
+    height: clamp(40px, 80 / 1920 * 100vw, 160px);
+  }
+
+  @include respond-to("5xl") {
+    width: clamp(40px, 80 / 2560 * 100vw, 160px);
+    height: clamp(40px, 80 / 2560 * 100vw, 160px);
+  }
+
+  &__name {
+    text-align: center; /* выравнивание по центру для аккуратного переноса */
+    white-space: normal; /* разрешает перенос текста на следующую строку */
+    word-wrap: break-word; /* если слово слишком длинное, оно будет разорвано */
+  }
+}
