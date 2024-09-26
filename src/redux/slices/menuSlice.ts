@@ -1,51 +1,23 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface InfoPopupState {
-  isOpen: boolean;
-  description: string | null;
-  name: string | null;
-  icon: IconDefinition | null;
-  link: string | null;
+export interface MenuState {
+  activeCategory: string;
 }
 
-const initialState: InfoPopupState = {
-  isOpen: false,
-  description: null,
-  name: null,
-  icon: null,
-  link: null,
+const initialState: MenuState = {
+  activeCategory: "folder",
 };
 
-const infoPopupSlice = createSlice({
-  name: "infoPopup",
+const menuSlice = createSlice({
+  name: "menu",
   initialState,
   reducers: {
-    openPopup: (
-      state,
-      action: PayloadAction<{
-        description: string;
-        name: string;
-        icon: IconDefinition;
-        link: string;
-      }>
-    ) => {
-      state.isOpen = true;
-      state.name = action.payload.name;
-      state.description = action.payload.description;
-      state.icon = action.payload.icon;
-      state.link = action.payload.link;
-    },
-    closePopup: (state) => {
-      state.isOpen = false;
-      state.name = null;
-      state.description = null;
-      state.icon = null;
-      state.link = null;
+    setActive: (state, action: PayloadAction<{ name: string }>) => {
+      state.activeCategory = action.payload.name;
     },
   },
 });
 
-export const { openPopup, closePopup } = infoPopupSlice.actions;
+export const { setActive } = menuSlice.actions;
 
-export default infoPopupSlice.reducer;
+export default menuSlice.reducer;
