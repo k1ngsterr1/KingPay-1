@@ -1,3 +1,4 @@
+import { Header } from "@features/ui/Header/ui";
 import { Sidebar } from "@features/ui/Sidebar/ui";
 import { Heading } from "@shared/ui/Heading";
 
@@ -9,7 +10,10 @@ export const PersonalLayout = () => {
   return (
     <main>
       <Sidebar />
-      <Heading text="Личный кабинет" />
+      <div className="w-[85%]  m-auto">
+        <Header />
+        <Heading text="Личный кабинет" />
+      </div>
     </main>
   );
 };
