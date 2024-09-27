@@ -18,7 +18,7 @@ export const Sidebar = () => {
   );
 
   return (
-    <div className="flex fixed left-0 flex-col items-center justify-between bg-white h-full w-[90px] py-5">
+    <div className="flex fixed left-0 top-0 flex-col items-center justify-between bg-white h-full w-[90px] py-5">
       <img src={logo} alt="Logo" />
       <nav className="w-full flex items-center flex-col gap-8">
         <IconButton
