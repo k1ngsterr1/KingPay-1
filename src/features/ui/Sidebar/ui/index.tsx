@@ -10,6 +10,7 @@ import { setActive } from "@redux/slices/menuSlice";
 import { RootState } from "@redux/store";
 import { IconButton } from "@shared/ui/IconButton";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {
@@ -18,6 +19,12 @@ export const Sidebar = () => {
     (state: RootState) => state.menu.activeCategory
   );
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!activeCategory) {
+      dispatch(setActive({ name: "user" }));
+    }
+  }, [dispatch, activeCategory]);
 
   const handleUserClick = () => {
     dispatch(setActive({ name: "user" }));

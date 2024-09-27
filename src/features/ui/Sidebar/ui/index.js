@@ -6,11 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { setActive } from "@redux/slices/menuSlice";
 import { IconButton } from "@shared/ui/IconButton";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export var Sidebar = function () {
     var dispatch = useDispatch();
     var activeCategory = useSelector(function (state) { return state.menu.activeCategory; });
     var navigate = useNavigate();
+    useEffect(function () {
+        if (!activeCategory) {
+            dispatch(setActive({ name: "user" }));
+        }
+    }, [dispatch, activeCategory]);
     var handleUserClick = function () {
         dispatch(setActive({ name: "user" }));
         navigate("/personal-account");

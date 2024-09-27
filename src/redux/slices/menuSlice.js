@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 var initialState = {
-    activeCategory: "folder",
+    activeCategory: "user",
 };
 var menuSlice = createSlice({
     name: "menu",
