@@ -5,8 +5,6 @@ import { tabs } from "@shared/lib/content/projectContent";
 import TechnicalInformation from "@entities/technical-information";
 import PaymentWays from "@entities/payment-project-ways";
 
-import { Input } from "@shared/ui/Input";
-import { PrimaryButton } from "@shared/ui/PrimaryButton";
 import TestRequest from "@entities/test-request";
 
 export const ProjectScreen = () => {

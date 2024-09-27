@@ -1,20 +1,29 @@
-import {
-  faBell,
-  faMoneyBill1,
-  faUser,
-} from "@fortawesome/free-regular-svg-icons";
-import { faCode, faShield } from "@fortawesome/free-solid-svg-icons";
-import { TabButton } from "@shared/ui/TabButton";
+import { useState } from "react";
+import IconText from "@shared/ui/IconText";
 import styles from "./styles.module.scss";
+import { personalTabs } from "@shared/lib/content/personalTabsContent";
 
 export const TabNavigation = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
     <div className={styles.tab_navigation}>
-      <TabButton text="Личные данные" icon={faUser} isActive />
-      <TabButton text="Платежные данные" icon={faMoneyBill1} isActive />
-      <TabButton text="Безопасность" icon={faShield} isActive />
-      <TabButton text="Уведомления" icon={faBell} isActive />
-      <TabButton text="API" icon={faCode} isActive />
+      {personalTabs.map((tab, index) => {
+        return (
+          <div className="flex flex-col" key={index}>
+            <IconText
+              icon={tab.icon(activeIndex === index)}
+              text={tab.text}
+              isActive={activeIndex === index}
+              onClick={() => handleClick(index)}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

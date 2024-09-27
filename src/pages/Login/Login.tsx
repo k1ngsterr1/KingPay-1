@@ -19,7 +19,7 @@ export const Login = () => {
   };
 
   const handleRedirect = () => {
-    window.location.href = "/project";
+    window.location.href = "/personal-account";
   };
 
   return (
