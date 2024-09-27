@@ -6,40 +6,40 @@ interface IPaymentWayProps {
   name: string;
   isVisa?: boolean;
   image2?: string;
-  margin?: string;
 }
 
-export const PaymentWay = ({
+export const PaymentWay: React.FC<IPaymentWayProps> = ({
   image,
   image2,
   name,
   isVisa,
-  margin,
-}: IPaymentWayProps) => {
+}) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
-  const handleToggleSwitch = () => {
-    setIsSwitchOn((prevState) => !prevState);
+  const handleToggle = () => {
+    setIsSwitchOn(!isSwitchOn);
   };
 
   return (
-    <div className={`flex flex-row gap-4 items-center`}>
-      <div className="flex flex-col gap-2">
-        {isVisa && <img src={image2} alt="paymentway" />}
-        <img src={image} alt="paymentway" />
-      </div>
-      <div className="flex flex-col">
-        <div className="flex flex-row gap-2">
-          <span className="text-lg">{name}</span>
-          {isVisa && (
-            <span className="text-[#B7B7B7] -mt-2 text-sm">RUB, UAH, KZT</span>
-          )}
+    <div className="flex items-center justify-between w-full py-4">
+      <div className="flex items-center gap-4">
+        <div className="flex flex-col items-center">
+          {isVisa && <img src={image2} alt="paymentway" className="w-8 h-8" />}
+          <img src={image} alt="paymentway" className="w-12 h-12" />
         </div>
-        <span className="text-[#B7B7B7]">7,9%</span>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2">
+            <span className="text-lg">{name}</span>
+            {isVisa && (
+              <span className="text-[#B7B7B7] text-sm -mt-2">
+                RUB, UAH, KZT
+              </span>
+            )}
+          </div>
+          <span className="text-[#B7B7B7] "> 7,9%</span>
+        </div>
       </div>
-      <div className={margin}>
-        <Switch isChecked={isSwitchOn} onToggle={handleToggleSwitch} />
-      </div>
+      <Switch isChecked={isSwitchOn} onToggle={handleToggle} />
     </div>
   );
 };

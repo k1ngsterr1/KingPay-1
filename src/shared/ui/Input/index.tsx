@@ -10,6 +10,7 @@ interface IInputProps {
   margin?: string;
   width?: string;
   isIcon?: boolean;
+  fontSize?: string;
 }
 
 export const Input = ({
@@ -18,6 +19,7 @@ export const Input = ({
   margin,
   width,
   isIcon = true,
+  fontSize,
 }: IInputProps) => {
   return (
     <div className={`${styles.container} ${margin} ${width}`}>
@@ -36,7 +38,7 @@ export const Input = ({
       <input
         placeholder={placeholder}
         type={type}
-        className={styles.container__input}
+        className={`${styles.container__input} ${fontSize}`}
       />
     </div>
   );

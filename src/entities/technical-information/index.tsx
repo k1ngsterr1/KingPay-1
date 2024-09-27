@@ -168,7 +168,9 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
           </span>
         </div>
       </div>
-      <PrimaryButton text="Сохранить" margin="mt-12" />
+      <div className={styles.button}>
+        <PrimaryButton text="Сохранить" />
+      </div>
     </div>
   );
 };

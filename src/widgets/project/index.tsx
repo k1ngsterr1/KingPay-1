@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import IconText from "@shared/ui/IconText";
 import { tabs } from "@shared/lib/content/projectContent";
+
 import TechnicalInformation from "@entities/technical-information";
-import { PaymentWay } from "@shared/ui/PaymentWay";
-import { payments } from "@shared/lib/content/paymentProjectContent";
+import PaymentWays from "@entities/payment-project-ways";
+
+import { Input } from "@shared/ui/Input";
+import { PrimaryButton } from "@shared/ui/PrimaryButton";
+import TestRequest from "@entities/test-request";
 
 export const ProjectScreen = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -40,53 +44,43 @@ export const ProjectScreen = () => {
     switch (activeIndex) {
       case 0:
         return (
-          <TechnicalInformation
-            selectedMethod={selectedMethod}
-            handleMethodChange={handleMethodChange}
-            isOverrideURLSwitchOn={isOverrideURLSwitchOn}
-            handleToggleOverrideURL={handleToggleOverrideURL}
-            isSignatureAlgorithmSwitchOn={isSignatureAlgorithmSwitchOn}
-            handleToggleSignatureAlgorithm={handleToggleSignatureAlgorithm}
-          />
+          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
+            <TechnicalInformation
+              selectedMethod={selectedMethod}
+              handleMethodChange={handleMethodChange}
+              isOverrideURLSwitchOn={isOverrideURLSwitchOn}
+              handleToggleOverrideURL={handleToggleOverrideURL}
+              isSignatureAlgorithmSwitchOn={isSignatureAlgorithmSwitchOn}
+              handleToggleSignatureAlgorithm={handleToggleSignatureAlgorithm}
+            />
+          </div>
         );
       case 1:
         return (
-          <div className="p-8">
-            <span className="text-3xl font-light">Платежные направления</span>
-            <div className="mt-8 flex flex-row flex-wrap gap-x-24 gap-y-10">
-              {payments.map((payment) => {
-                return (
-                  <PaymentWay
-                    image={payment.image}
-                    name={payment.name}
-                    isVisa={payment.isVisa}
-                    margin={payment.margin}
-                    image2={payment.image2}
-                  />
-                );
-              })}
-            </div>
+          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
+            <PaymentWays />
           </div>
         );
       case 2:
         return (
-          <div className="p-8">
-            <span className="text-2xl">Статистика</span>
-            <p>Информация о статистике.</p>
+          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
+            <div className="p-8 mb-12">
+              <span className="text-3xl font-light">Платежные направления</span>
+            </div>
           </div>
         );
       case 3:
         return (
-          <div className="p-8">
-            <span className="text-2xl">Тестирование</span>
-            <p>Секция тестирования различных функций.</p>
+          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
+            <TestRequest />
           </div>
         );
       case 4:
         return (
-          <div className="p-8">
-            <span className="text-2xl">Виджеты</span>
-            <p>Настройки виджетов для вашей страницы.</p>
+          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
+            <div className="p-8 mb-12">
+              <span className="text-3xl font-light">Форма оплаты</span>
+            </div>
           </div>
         );
       default:
@@ -120,11 +114,7 @@ export const ProjectScreen = () => {
               );
             })}
           </div>
-          <div className=" ml-20 w-full">
-            <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
-              {renderContent()}
-            </div>
-          </div>
+          <div className=" ml-20 w-full">{renderContent()}</div>
         </div>
       </div>
     </div>
