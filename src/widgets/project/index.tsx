@@ -1,9 +1,36 @@
 import React, { useState } from "react";
 import IconText from "@shared/ui/IconText";
 import { tabs } from "@shared/lib/content/projectContent";
+import TechnicalInformation from "@entities/technical-information";
+import { PaymentWay } from "@shared/ui/PaymentWay";
+import { payments } from "@shared/lib/content/paymentProjectContent";
 
 export const ProjectScreen = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [isOverrideURLSwitchOn, setIsOverrideURLSwitchOn] = useState(false);
+  const [isSignatureAlgorithmSwitchOn, setIsSignatureAlgorithmSwitchOn] =
+    useState(false);
+
+  const handleToggleOverrideURL = () => {
+    setIsOverrideURLSwitchOn(!isOverrideURLSwitchOn);
+  };
+
+  const handleToggleSignatureAlgorithm = () => {
+    setIsSignatureAlgorithmSwitchOn(!isSignatureAlgorithmSwitchOn);
+  };
+
+  const [selectedMethod, setSelectedMethod] = useState({
+    notification: "POST",
+    success: "GET",
+    failure: "GET",
+  });
+
+  const handleMethodChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+    key: string
+  ) => {
+    setSelectedMethod((prev) => ({ ...prev, [key]: event.target.value }));
+  };
 
   const handleClick = (index: number) => {
     setActiveIndex(index);
@@ -13,16 +40,32 @@ export const ProjectScreen = () => {
     switch (activeIndex) {
       case 0:
         return (
-          <div className="p-8">
-            <span className="text-2xl">Техническая информация</span>
-            <p>Контент для основного раздела</p>
-          </div>
+          <TechnicalInformation
+            selectedMethod={selectedMethod}
+            handleMethodChange={handleMethodChange}
+            isOverrideURLSwitchOn={isOverrideURLSwitchOn}
+            handleToggleOverrideURL={handleToggleOverrideURL}
+            isSignatureAlgorithmSwitchOn={isSignatureAlgorithmSwitchOn}
+            handleToggleSignatureAlgorithm={handleToggleSignatureAlgorithm}
+          />
         );
       case 1:
         return (
           <div className="p-8">
-            <span className="text-2xl">Способы оплаты</span>
-            <p>Здесь вы можете настроить способы оплаты.</p>
+            <span className="text-3xl font-light">Платежные направления</span>
+            <div className="mt-8 flex flex-row flex-wrap gap-x-24 gap-y-10">
+              {payments.map((payment) => {
+                return (
+                  <PaymentWay
+                    image={payment.image}
+                    name={payment.name}
+                    isVisa={payment.isVisa}
+                    margin={payment.margin}
+                    image2={payment.image2}
+                  />
+                );
+              })}
+            </div>
           </div>
         );
       case 2:
@@ -56,8 +99,8 @@ export const ProjectScreen = () => {
   };
 
   return (
-    <div className="flex overflow-x-hidden">
-      <div className="flex-1 md:ml-[90px] ">
+    <div className="flex overflow-x-hidden -mt-10">
+      <div className="flex-1 md:ml-[90px]">
         <div className="flex justify-between w-[98%] mb-2">
           <span className="text-[#B7B7B7]">Управление проектом</span>
         </div>
@@ -77,7 +120,7 @@ export const ProjectScreen = () => {
               );
             })}
           </div>
-          <div className=" ml-24 w-full">
+          <div className=" ml-20 w-full">
             <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
               {renderContent()}
             </div>

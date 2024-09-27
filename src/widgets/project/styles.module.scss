@@ -1,0 +1,34 @@
+@import "../../shared/styles/breakpoints.scss";
+@import "../../shared/styles/respondTo";
+
+.input {
+  @apply w-[60%];
+
+  @include respond-to("lg") {
+    @apply w-[62%];
+  }
+
+  @include respond-to("xl") {
+    @apply w-[63%];
+  }
+
+  @include respond-to("xl") {
+    @apply w-[64%];
+  }
+
+  @include respond-to("2xl") {
+    @apply w-[65%];
+  }
+
+  @include respond-to("3xl") {
+    @apply w-[66%];
+  }
+
+  @include respond-to("4xl") {
+    @apply w-[67%];
+  }
+
+  @include respond-to("5xl") {
+    @apply w-[68%];
+  }
+}

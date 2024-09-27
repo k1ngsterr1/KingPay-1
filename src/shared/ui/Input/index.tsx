@@ -6,23 +6,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IInputProps {
   placeholder: string;
-  type: "text" | "password" | "email";
+  type?: "text" | "password" | "email";
   margin?: string;
+  width?: string;
+  isIcon?: boolean;
 }
 
-export const Input = ({ placeholder, type, margin }: IInputProps) => {
+export const Input = ({
+  placeholder,
+  type,
+  margin,
+  width,
+  isIcon = true,
+}: IInputProps) => {
   return (
-    <div className={`${styles.container} ${margin}`}>
-      <FontAwesomeIcon
-        className={`${styles.container__icon}`}
-        icon={
-          type === "email"
-            ? faEnvelope
-            : type === "password"
-            ? faLock
-            : type === "text" && faUser
-        }
-      />
+    <div className={`${styles.container} ${margin} ${width}`}>
+      {isIcon && (
+        <FontAwesomeIcon
+          className={`${styles.container__icon}`}
+          icon={
+            type === "email"
+              ? faEnvelope
+              : type === "password"
+              ? faLock
+              : type === "text" && faUser
+          }
+        />
+      )}
       <input
         placeholder={placeholder}
         type={type}
