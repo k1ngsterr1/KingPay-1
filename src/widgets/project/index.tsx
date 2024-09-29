@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import IconText from "@shared/ui/IconText";
 import { tabs } from "@shared/lib/content/projectContent";
-import { Input } from "@shared/ui/Input";
-import styles from "./styles.module.scss";
-import { PrimaryButton } from "@shared/ui/PrimaryButton";
 
 import TechnicalInformation from "@entities/technical-information";
 import PaymentWays from "@entities/payment-project-ways";
+import PaymentFormWidget from "@entities/payment-form-widget";
 
 import TestRequest from "@entities/test-request";
+import HistoryChart from "@entities/history-chart";
+
+import DownloadIcon from "@shared/icons/download-icon";
+import TransactionsTable from "@features/ui/TransactionTable";
 
 export const ProjectScreen = () => {
-  const [activeButton, setActiveButton] = useState<string | null>(null);
-
-  const handleButtonClick = (button: string) => {
-    setActiveButton(button);
-  };
-
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isOverrideURLSwitchOn, setIsOverrideURLSwitchOn] = useState(false);
   const [isSignatureAlgorithmSwitchOn, setIsSignatureAlgorithmSwitchOn] =
@@ -71,8 +67,49 @@ export const ProjectScreen = () => {
       case 2:
         return (
           <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
-            <div className="p-8 mb-12">
-              <span className="text-3xl font-light">Платежные направления</span>
+            <div className="p-10 mb-12">
+              <div className=" flex flex-row justify-between w-full items-center">
+                <span className="text-3xl font-light">История операций</span>
+                <div className=" flex flex-row gap-5">
+                  <span className=" text-[#B7B7B7]">Транзакций 1200 шт</span>
+                  <span className=" text-[#B7B7B7]">Сумма 3 456 234.45₽</span>
+                </div>
+              </div>
+              <div className=" flex flex-row justify-between items-center w-full">
+                <div className="flex flex-row mt-10 gap-10 items-center">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[#6A6A6A]">Статус</span>
+                    <select className=" bg-transparent ">
+                      <option value="">Все статусы</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[#6A6A6A]">Метод</span>
+                    <select className=" bg-transparent ">
+                      <option value="">Все методы</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[#6A6A6A]">Период</span>
+                    <select className=" bg-transparent ">
+                      <option value="">26.04.2024 - 26.05.2024</option>
+                    </select>
+                  </div>
+                  <div className="">
+                    <input
+                      placeholder="Поиск"
+                      className=" outline-none text-[#B7B7B7] py-1 border-[1.7px] border-[##B7B7B7] border-l-0 border-r-0 border-t-0"
+                    />
+                  </div>
+                </div>
+                <DownloadIcon />
+              </div>
+              <div className=" mt-8 -ml-7">
+                <HistoryChart />
+              </div>
+              <div>
+                <TransactionsTable />
+              </div>
             </div>
           </div>
         );
@@ -84,90 +121,9 @@ export const ProjectScreen = () => {
         );
       case 4:
         return (
-          <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
-            <div className="p-8 mb-12">
-              <span className="text-3xl font-light">Форма оплаты</span>
-              <div className="flex flex-col mt-12 ">
-                <div className="flex flex-row items-center gap-24">
-                  <span className="">Номер заказа</span>
-                  <Input placeholder="" />
-                </div>
-                <div className="flex flex-row items-center gap-24 mt-10">
-                  <span className="">Назначение⠀⠀</span>
-                  <div className="flex flex-row gap-8">
-                    <Input placeholder="" />
-                    <select className="p-2 bg-transparent ">
-                      <option value="Указано">Указано</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="flex flex-row items-center gap-24 mt-10">
-                  <span className="">Сумма⠀⠀⠀⠀⠀⠀</span>
-                  <div className="flex flex-row gap-8 items-center">
-                    <Input placeholder="" />
-                    <select className="p-2 bg-transparent ">
-                      <option value="Указано">RUB</option>
-                    </select>
-                    <select className="p-2 bg-transparent ">
-                      <option value="Указано">Указано</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="flex flex-row items-center gap-56 mt-10">
-                  <span>Текст кнопки⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</span>
-                  <select className="p-2 bg-transparent ">
-                    <option value="Указано">Оплатить</option>
-                  </select>
-                </div>
-                <div className="flex flex-row items-center mt-10">
-                  <span>Данные плательщика⠀⠀⠀⠀⠀</span>
-                  <div className={`gap-4 flex flex-row ${styles.buttons}`}>
-                    <button
-                      className={`border-[1px] px-3 py-2 rounded-md items-center justify-center ${
-                        activeButton === "ФИО"
-                          ? "border-[#47E1DD]"
-                          : "border-black"
-                      }`}
-                      onClick={() => handleButtonClick("ФИО")}
-                    >
-                      ФИО
-                    </button>
-
-                    <button
-                      className={`border-[1px] px-3 py-2 rounded-md items-center justify-center ${
-                        activeButton === "Телефон"
-                          ? "border-[#47E1DD]"
-                          : "border-black"
-                      }`}
-                      onClick={() => handleButtonClick("Телефон")}
-                    >
-                      Телефон
-                    </button>
-
-                    <button
-                      className={`border-[1px] px-3 py-2 rounded-md items-center justify-center ${
-                        activeButton === "Адрес"
-                          ? "border-[#47E1DD]"
-                          : "border-black"
-                      }`}
-                      onClick={() => handleButtonClick("Адрес")}
-                    >
-                      Адрес
-                    </button>
-                  </div>
-                </div>
-                <div className={`${styles.button_widget} mt-12`}>
-                  <PrimaryButton text="Создать форму" />
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return (
-          <div className="p-8">
-            <span className="text-2xl">Выберите раздел</span>
-          </div>
+          <>
+            <PaymentFormWidget />
+          </>
         );
     }
   };

@@ -30,7 +30,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
   handleToggleSignatureAlgorithm,
 }) => {
   return (
-    <div className="p-8 mb-8">
+    <div className="p-10 mb-8">
       <span className="text-3xl font-light">Техническая информация</span>
       <div className="flex flex-col mt-12">
         <div className="flex flex-row gap-4 items-center">
