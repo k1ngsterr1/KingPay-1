@@ -1,4 +1,5 @@
 .tab_navigation {
   display: flex;
   flex-direction: column;
+  @apply gap-8;
 }
