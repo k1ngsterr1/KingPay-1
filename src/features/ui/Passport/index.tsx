@@ -8,11 +8,11 @@ export const Passport = () => {
     <div className={styles.passport}>
       <h2 className={styles.passport__heading}>Паспорт</h2>
       <div className="mt-8 flex flex-col gap-10">
-        <LineInput labelText="Фамилия" />
-        <LineInput labelText="Имя" />
-        <LineInput labelText="Отчество" />
-        <LineInput labelText="Дата рождения" />
-        <LineInput labelText="Серия и номер" />
+        <LineInput labelText="Фамилия" gap="gap-8" />
+        <LineInput labelText="Имя" gap="gap-8" />
+        <LineInput labelText="Отчество" gap="gap-8" />
+        <LineInput labelText="Дата рождения" gap="gap-8" />
+        <LineInput labelText="Серия и номер" gap="gap-8" />
       </div>
       <div className="flex flex-col items-center justify-center">
         <Note>

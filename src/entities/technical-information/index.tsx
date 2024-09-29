@@ -30,18 +30,18 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
   handleToggleSignatureAlgorithm,
 }) => {
   return (
-    <div className="p-8 mb-8">
+    <div className="p-10 mb-8">
       <span className="text-3xl font-light">Техническая информация</span>
       <div className="flex flex-col mt-12">
         <div className="flex flex-row gap-4 items-center">
           <span className="w-1/4">ID проекта</span>
           <span className="flex-grow">9373</span>
         </div>
-        <div className="flex flex-row gap-4 mt-8 items-center">
+        <div className="flex flex-row gap-4 mt-14 items-center">
           <span className="w-1/4">Название проекта</span>
           <Input placeholder="" width={styles.input} />
         </div>
-        <div className="flex flex-row gap-4 mt-8 items-center">
+        <div className="flex flex-row gap-4 mt-14 items-center">
           <span className="w-1/4">Секретный ключ</span>
           <Input
             placeholder=""
@@ -51,7 +51,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
           />
         </div>
       </div>
-      <div className="flex flex-col mt-12 ">
+      <div className="flex flex-col mt-14">
         <div className="flex flex-row gap-4 items-center">
           <span className="w-1/4 flex flex-row items-center gap-2">
             URL оповещения
@@ -71,7 +71,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
             <option value="DELETE">DELETE</option>
           </select>
         </div>
-        <div className="flex flex-row gap-4 mt-8 items-center">
+        <div className="flex flex-row gap-4 mt-14 items-center">
           <span className="w-1/4 flex flex-row items-center gap-2">
             <div className="flex flex-col">
               <span>URL</span>
@@ -96,7 +96,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
             <option value="DELETE">DELETE</option>
           </select>
         </div>
-        <div className="flex flex-row gap-4 mt-8 items-center">
+        <div className="flex flex-row gap-4 mt-14 items-center">
           <span className="w-1/4 flex flex-row items-center gap-2">
             <div className="flex flex-col">
               <span>URL</span>
@@ -121,7 +121,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
             <option value="DELETE">DELETE</option>
           </select>
         </div>
-        <div className="flex flex-row gap-4 items-center mt-12">
+        <div className="flex flex-row gap-4 items-center mt-14">
           <span className="w-1/4">Переопределять URL</span>
           <span
             className={`${
@@ -142,7 +142,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
             Разрешено
           </span>
         </div>
-        <div className="flex flex-row gap-4 items-center mt-12">
+        <div className="flex flex-row gap-4 items-center mt-14">
           <span className="w-1/4">Алгоритм подписи</span>
           <span
             className={`${
