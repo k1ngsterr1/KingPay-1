@@ -4,6 +4,7 @@ import { TabNavigation } from "@features/ui/TabNavigation";
 import { RootState } from "@redux/store";
 import { PaymentDataScreen } from "@widgets/Payment";
 import { PersonalLayout } from "@widgets/PersonalLayout";
+import { SecurityScreen } from "@widgets/Security";
 import { useSelector } from "react-redux";
 
 export const PersonalAccount = () => {
@@ -20,6 +21,7 @@ export const PersonalAccount = () => {
           </div>
         )}
         {activeCategory === 1 && <PaymentDataScreen />}
+        {activeCategory === 2 && <SecurityScreen />}
       </PersonalLayout>
     </>
   );
