@@ -29,7 +29,7 @@ const TestRequest = () => {
             <Input fontSize="text-lg" placeholder="Параметр 1" width="w-full" />
           </div>
         </div>
-        <div className="flex mt-10 gap-y-7 gap-x-6">
+        <div className="flex mt-14 gap-y-7 gap-x-6">
           <div className="w-[22%]">
             <Input fontSize="text-lg" placeholder="Параметр 2" width="w-full" />
           </div>

@@ -1,3 +1,4 @@
+import ClockIcon from "@shared/icons/clock-icon";
 import React from "react";
 
 const transactions = [
@@ -7,39 +8,34 @@ const transactions = [
     amount: "12 540 ₽",
     method: "Банк. карта",
     orderId: "9837646",
-    date: "25 мая 2024",
-    time: "16:35",
-    status: "В ожидании",
-  },
-  // Повторяем структуру для демонстрации
-  {
-    id: "9837646",
-    email: "mail@mail.ru",
-    amount: "12 540 ₽",
-    method: "Банк. карта",
-    orderId: "9837646",
-    date: "25 мая 2024",
-    time: "16:35",
+    date: "25 мая 2024  16:35",
     status: "В ожидании",
   },
   {
-    id: "9837646",
-    email: "mail@mail.ru",
-    amount: "12 540 ₽",
+    id: "9837647",
+    email: "mail2@mail.ru",
+    amount: "10 540 ₽",
     method: "Банк. карта",
-    orderId: "9837646",
-    date: "25 мая 2024",
-    time: "16:35",
-    status: "В ожидании",
+    orderId: "9837647",
+    date: "26 мая 2024 16:45",
+    status: "Завершен",
   },
   {
-    id: "9837646",
-    email: "mail@mail.ru",
-    amount: "12 540 ₽",
+    id: "9837648",
+    email: "mail3@mail.ru",
+    amount: "8 540 ₽",
     method: "Банк. карта",
-    orderId: "9837646",
-    date: "25 мая 2024",
-    time: "16:35",
+    orderId: "9837648",
+    date: "27 мая 2024 17:00",
+    status: "Завершен",
+  },
+  {
+    id: "9837649",
+    email: "mail4@mail.ru",
+    amount: "15 000 ₽",
+    method: "Банк. карта",
+    orderId: "9837649",
+    date: "28 мая 2024 18:20",
     status: "В ожидании",
   },
 ];
@@ -47,48 +43,42 @@ const transactions = [
 const TransactionsTable: React.FC = () => {
   return (
     <div className="w-full overflow-x-auto">
-      <table className="min-w-full text-left border-separate border-spacing-y-3">
+      <table className="min-w-full text-left">
         <thead>
-          <tr className="text-[#6A6A6A] text-sm">
-            <th className="px-6 py-4">№ Платежа</th>
-            <th className="px-6 py-4">Эл. почта</th>
-            <th className="px-6 py-4">Сумма</th>
-            <th className="px-6 py-4">Метод</th>
-            <th className="px-6 py-4">№ Заказа</th>
-            <th className="px-6 py-4">Дата</th>
-            <th className="px-6 py-4">Статус</th>
+          <tr className="text-[#6A6A6A]">
+            <th className="px-6 py-2.5 font-light">№ Платежа</th>
+            <th className="px-6 py-2.5 font-light">Эл. почта</th>
+            <th className="px-6 py-2.5 font-light">Сумма</th>
+            <th className="px-6 py-2.5 font-light">Метод</th>
+            <th className="px-6 py-2.5 font-light">№ Заказа</th>
+            <th className="px-6 py-2.5 font-light">Дата</th>
+            <th className="px-6 py-2.5 font-light">Статус</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((transaction, index) => (
             <tr
               key={index}
-              className="bg-white shadow-md rounded-lg border-b border-gray-100 text-[#292D32] text-sm"
+              className={`border-b border-gray-100 text-[#292D32]  ${
+                index % 2 === 0 ? "bg-[#FBFBFB] rounded-[10px]" : "bg-[#FFFFFF]"
+              }`}
             >
-              <td className="px-6 py-4">{transaction.id}</td>
-              <td className="px-6 py-4">{transaction.email}</td>
-              <td className="px-6 py-4 font-bold">{transaction.amount}</td>
-              <td className="px-6 py-4">{transaction.method}</td>
-              <td className="px-6 py-4">{transaction.orderId}</td>
-              <td className="px-6 py-4">{transaction.date}</td>
-              <td className="px-6 py-4 flex items-center gap-2">
-                <span>{transaction.time}</span>
-                {/* Иконка состояния (замени на свою иконку или компонент) */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="feather feather-clock"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
+              <td className="px-6 py-2.5 text-[#6A6A6A] font-light">
+                {transaction.id}
+              </td>
+              <td className="px-6 py-2.5">{transaction.email}</td>
+              <td className="px-6 py-2.5 font-semibold">
+                {transaction.amount}
+              </td>
+              <td className="px-6 py-2.5">{transaction.method}</td>
+              <td className="px-6 py-2.5 text-[#6A6A6A] font-light">
+                {transaction.orderId}
+              </td>
+              <td className="px-6 py-2.5 text-[#6A6A6A] font-light">
+                {transaction.date}
+              </td>
+              <td className="px-9 py-2.5 flex items-center gap-2">
+                <ClockIcon width={18} height={18} />
               </td>
             </tr>
           ))}

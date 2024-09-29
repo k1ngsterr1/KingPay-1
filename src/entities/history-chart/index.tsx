@@ -38,12 +38,11 @@ const HistoryChart: React.FC = () => {
             domain={[0, 5000]}
             ticks={[0, 1000, 2000, 3000, 4000, 5000]}
           />{" "}
-          {/* Добавляем нужные значения на ось Y */}
           <Tooltip />
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#00D1FF"
+            stroke="#47E1DD"
             strokeWidth={2}
             dot={false}
           />
