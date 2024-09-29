@@ -10,6 +10,6 @@ var TechnicalInformation = function (_a) {
                                     ? "text-black"
                                     : "text-[#B7B7B7]"), children: "MD5" }), _jsx(Switch, { isChecked: isSignatureAlgorithmSwitchOn, onToggle: handleToggleSignatureAlgorithm }), _jsx("span", { className: "".concat(isSignatureAlgorithmSwitchOn === true
                                     ? "text-black"
-                                    : "text-[#B7B7B7]"), children: "SHA 256" })] })] }), _jsx("div", { className: styles.button, children: _jsx(PrimaryButton, { text: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C" }) })] }));
+                                    : "text-[#B7B7B7]"), children: "SHA 256" })] })] }), _jsx("div", { className: "".concat(styles.button, " mt-12"), children: _jsx(PrimaryButton, { text: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C" }) })] }));
 };
 export default TechnicalInformation;
