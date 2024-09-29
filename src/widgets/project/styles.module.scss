@@ -1,0 +1,59 @@
+@import "../../shared/styles/breakpoints.scss";
+@import "../../shared/styles/respondTo";
+
+.input {
+  @apply w-[60%];
+
+  @include respond-to("lg") {
+    @apply w-[62%];
+  }
+
+  @include respond-to("xl") {
+    @apply w-[63%];
+  }
+
+  @include respond-to("xl") {
+    @apply w-[64%];
+  }
+
+  @include respond-to("2xl") {
+    @apply w-[65%];
+  }
+
+  @include respond-to("3xl") {
+    @apply w-[66%];
+  }
+
+  @include respond-to("4xl") {
+    @apply w-[67%];
+  }
+
+  @include respond-to("5xl") {
+    @apply w-[68%];
+  }
+}
+
+.button {
+  @apply mt-12;
+  margin-left: clamp(87.5px, 175 / 1200 * 100vw, 350px);
+
+  @include respond-to("xl") {
+    margin-left: clamp(102.5px, 205 / 1360 * 100vw, 410px);
+  }
+
+  @include respond-to("2xl") {
+    margin-left: clamp(117.5px, 235 / 1520 * 100vw, 470px);
+  }
+
+  @include respond-to("3xl") {
+    margin-left: clamp(130px, 260 / 1680 * 100vw, 520px);
+  }
+
+  @include respond-to("4xl") {
+    margin-left: clamp(150px, 300 / 1920 * 100vw, 600px);
+  }
+
+  @include respond-to("5xl") {
+    margin-left: clamp(200px, 400 / 2560 * 100vw, 800px);
+  }
+}
