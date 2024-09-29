@@ -19,12 +19,12 @@ export const TabButton: React.FC<ITabButton> = ({ icon, text, isActive }) => {
         icon={icon}
         className={`${styles.tab_btn__icon} ${
           isActive ? `text-[#6A6A6A]` : "text-black"
-        } text-2xl`}
+        }`}
       />
       <span
         className={`${styles.tab_btn__text} ${
           isActive ? `text-[#6A6A6A]` : "text-black"
-        } text-2xl`}
+        }`}
       >
         {text}
       </span>
