@@ -11,6 +11,10 @@ export const Registration = () => {
   const categories = ["Россия", "Другие страны"];
   const [activeCategory, setActiveCategory] = useState<string>("Россия");
 
+  const handleRedirect = () => {
+    window.location.href = "/login";
+  };
+
   return (
     <div className={`${styles.container}`}>
       <Logo margin="mt-14 mb-24" />
@@ -46,7 +50,11 @@ export const Registration = () => {
           <Input placeholder="Пароль" type="password" margin="mt-4" />
           <Input placeholder="Повторите пароль" type="password" margin="mt-4" />
         </div>
-        <PrimaryButton text="Зарегистрироваться" margin="mt-8 mb-14" />
+        <PrimaryButton
+          text="Зарегистрироваться"
+          margin="mt-8 mb-14"
+          onClick={handleRedirect}
+        />
       </div>
       <p className={styles.container__terms}>
         Нажимая на кнопку зарегистрироваться, вы подтверждаете, что ознакомлены

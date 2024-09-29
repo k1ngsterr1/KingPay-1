@@ -14,5 +14,6 @@ export default defineConfig({
       "@assets": path.resolve("src/assets"),
       "@redux": path.resolve("src/redux"),
     },
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
 });

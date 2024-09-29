@@ -7,7 +7,7 @@ export const PersonalAccount = () => {
   return (
     <>
       <PersonalLayout heading="Личный кабинет">
-        <div className="mt-16 flex items-start justify-between">
+        <div className="mt-16 md:ml-[90px] flex items-start justify-between">
           <TabNavigation />
           <Passport />
           <Contacts />

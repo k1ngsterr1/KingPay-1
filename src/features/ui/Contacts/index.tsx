@@ -8,13 +8,19 @@ export const Contacts = () => {
     <div className={styles.contacts}>
       <h2 className={styles.contacts__heading}>Контакты</h2>
       <div className="w-full flex flex-col items-start gap-4 mt-8">
+        <LineIcon name="Электронная почта" content="email***@gmail.com" />
         <LineIcon
-          name="Эл.почта"
-          content="email***@gmail.com"
-          icon={faEnvelope}
+          name="Телефон"
+          content="+7 (495) 765 56 22"
+          icon={faPlus}
+          margin="mt-6"
         />
-        <LineIcon name="Телефон" content="+7 (495) 765 56 22" icon={faPlus} />
-        <LineIcon name="Телеграм" content="@765***22" icon={faTrash} />
+        <LineIcon
+          name="Телеграм"
+          content="@765***22"
+          icon={faTrash}
+          margin="mt-6"
+        />
       </div>
     </div>
   );

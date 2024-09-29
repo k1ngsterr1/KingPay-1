@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-interface ILineInput extends HTMLInputElement {
+interface ILineInput {
   labelText: string;
 }
 

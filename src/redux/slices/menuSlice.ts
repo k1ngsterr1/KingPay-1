@@ -5,7 +5,7 @@ export interface MenuState {
 }
 
 const initialState: MenuState = {
-  activeCategory: "folder",
+  activeCategory: "user",
 };
 
 const menuSlice = createSlice({
@@ -19,5 +19,4 @@ const menuSlice = createSlice({
 });
 
 export const { setActive } = menuSlice.actions;
-
 export default menuSlice.reducer;
