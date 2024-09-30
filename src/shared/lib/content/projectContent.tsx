@@ -1,7 +1,7 @@
-import GearIcon from "@shared/icons/gear-icon";
 import CardIcon from "@shared/icons/card-icon";
-import StatsIcon from "@shared/icons/stats-icon";
 import CodeIcon from "@shared/icons/code-icon";
+import GearIcon from "@shared/icons/gear-icon";
+import StatsIcon from "@shared/icons/stats-icon";
 import WidgetIcon from "@shared/icons/widget-icon";
 
 export const tabs = [

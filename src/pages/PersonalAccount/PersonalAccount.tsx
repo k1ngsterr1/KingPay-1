@@ -2,6 +2,8 @@ import { Contacts } from "@features/ui/Contacts";
 import { Passport } from "@features/ui/Passport";
 import { TabNavigation } from "@features/ui/TabNavigation";
 import { RootState } from "@redux/store";
+import { APIScreen } from "@widgets/API";
+import { NotificationScreen } from "@widgets/Notification";
 import { PaymentDataScreen } from "@widgets/Payment";
 import { PersonalLayout } from "@widgets/PersonalLayout";
 import { SecurityScreen } from "@widgets/Security";
@@ -22,6 +24,8 @@ export const PersonalAccount = () => {
         )}
         {activeCategory === 1 && <PaymentDataScreen />}
         {activeCategory === 2 && <SecurityScreen />}
+        {activeCategory === 3 && <NotificationScreen />}
+        {activeCategory === 4 && <APIScreen />}
       </PersonalLayout>
     </>
   );
