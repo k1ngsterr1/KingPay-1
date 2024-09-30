@@ -1,4 +1,3 @@
-import React from "react";
 import { Project } from "@pages/Project";
 import { Registration } from "@pages/Registration/Registration";
 import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
