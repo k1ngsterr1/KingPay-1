@@ -1,25 +1,23 @@
-import { useState } from "react";
-import IconText from "@shared/ui/IconText";
-import styles from "./styles.module.scss";
+import { setActive } from "@redux/slices/tabSlice";
+import { RootState } from "@redux/store";
 import { personalTabs } from "@shared/lib/content/personalTabsContent";
+import IconText from "@shared/ui/IconText";
+import { useDispatch, useSelector } from "react-redux";
+import styles from "./styles.module.scss";
 
 export const TabNavigation = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
-  const handleClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
+  const { activeCategory } = useSelector((state: RootState) => state.tab);
+  const dispatch = useDispatch();
   return (
     <div className={styles.tab_navigation}>
       {personalTabs.map((tab, index) => {
         return (
           <div className="flex flex-col" key={index}>
             <IconText
-              icon={tab.icon(activeIndex === index)}
+              icon={tab.icon(activeCategory === index)}
               text={tab.text}
-              isActive={activeIndex === index}
-              onClick={() => handleClick(index)}
+              isActive={activeCategory === index}
+              onClick={() => dispatch(setActive({ index }))}
             />
           </div>
         );

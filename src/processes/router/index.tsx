@@ -1,16 +1,22 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
-
+import { Project } from "@pages/Project";
 import { Registration } from "@pages/Registration/Registration";
+import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
 import { Login } from "@pages/Login/Login";
 import { PaymentMethods } from "@pages/PaymentMethods";
-import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
 import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
-import { Project } from "@pages/Project";
+import { ControlPanel } from "@pages/ControlPanel";
+import { PaymentAcceptance } from "@pages/PaymentAcceptance";
+
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/login" />,
+  },
+  {
+    path: "/payment-acceptance",
+    element: <PaymentAcceptance />,
   },
   {
     path: "/registration",
@@ -19,6 +25,10 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/control-panel",
+    element: <ControlPanel />,
   },
   {
     path: "/personal-account",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import IconText from "@shared/ui/IconText";
 import { tabs } from "@shared/lib/content/projectContent";
+import styles from "./styles.module.scss";
 
 import TechnicalInformation from "@entities/technical-information";
 import PaymentWays from "@entities/payment-project-ways";
@@ -81,9 +82,9 @@ export const ProjectScreen = () => {
     <div className="flex overflow-x-hidden -mt-10">
       <div className="flex-1 md:ml-[90px]">
         <div className="flex justify-between w-[98%] mb-2">
-          <span className="text-[#B7B7B7]">Управление проектом</span>
+          <span className="text-[#B7B7B7] text-lg">Управление проектом</span>
         </div>
-        <span className="text-4xl">DONATEBASE.CC</span>
+        <span className={styles.heading}>DONATEBASE.CC</span>
         <div className="flex flex-row ">
           <div className="flex flex-col w-[20%]">
             {tabs.map((tab, index) => {

@@ -1,11 +1,11 @@
 import { jsx as _jsx } from "react/jsx-runtime";
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Registration } from "@pages/Registration/Registration";
+import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
 import { Login } from "@pages/Login/Login";
 import { PaymentMethods } from "@pages/PaymentMethods";
-import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
 import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Project } from "@pages/Project";
+import { Registration } from "@pages/Registration/Registration";
 export var router = createBrowserRouter([
     {
         path: "/",

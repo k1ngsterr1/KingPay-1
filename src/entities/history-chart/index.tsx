@@ -9,24 +9,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// Пример данных для графика
-const data = [
-  { date: "30 апр", value: 2000 },
-  { date: "2 мая", value: 3000 },
-  { date: "4 мая", value: 0 },
-  { date: "6 мая", value: 4500 },
-  { date: "8 мая", value: 500 },
-  { date: "10 мая", value: 0 },
-  { date: "12 мая", value: 1000 },
-  { date: "14 мая", value: 2000 },
-  { date: "16 мая", value: 500 },
-  { date: "18 мая", value: 4000 },
-  { date: "20 мая", value: 1000 },
-];
+interface HistoryChartProps {
+  data: { date: string; value: number }[];
+  height: number;
+}
 
-const HistoryChart: React.FC = () => {
+const HistoryChart: React.FC<HistoryChartProps> = ({ data, height = 300 }) => {
   return (
-    <div style={{ width: "100%", height: 300 }}>
+    <div style={{ width: "100%", height: height }}>
       <ResponsiveContainer>
         <LineChart
           data={data}
@@ -34,10 +24,7 @@ const HistoryChart: React.FC = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis
-            domain={[0, 5000]}
-            ticks={[0, 1000, 2000, 3000, 4000, 5000]}
-          />{" "}
+          <YAxis domain={[0, 5000]} ticks={[0, 1000, 2000, 3000, 4000, 5000]} />
           <Tooltip />
           <Line
             type="monotone"
