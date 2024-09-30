@@ -4,7 +4,7 @@ import { PrimaryButton } from "@shared/ui/PrimaryButton";
 const TestRequest = () => {
   return (
     <div className="p-10 mb-12">
-      <span className="text-3xl font-light">Тестовый запрос</span>
+      <span className="text-4xl font-light">Тестовый запрос</span>
       <div className="flex flex-col">
         <div className="flex mt-10 gap-y-7 gap-x-6">
           <div className="w-[22%]">

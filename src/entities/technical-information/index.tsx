@@ -31,7 +31,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
 }) => {
   return (
     <div className="p-10 mb-8">
-      <span className="text-3xl font-light">Техническая информация</span>
+      <span className="text-4xl font-light">Техническая информация</span>
       <div className="flex flex-col mt-12">
         <div className="flex flex-row gap-4 items-center">
           <span className="w-1/4">ID проекта</span>

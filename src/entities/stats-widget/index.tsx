@@ -21,7 +21,7 @@ export const Stats = () => {
     <div className="bg-[#FFFFFF] mt-8 rounded-[20px] w-full ">
       <div className="p-10 mb-12">
         <div className=" flex flex-row justify-between w-full items-center">
-          <span className="text-3xl font-light">История операций</span>
+          <span className="text-4xl font-light">История операций</span>
           <div className=" flex flex-row gap-5">
             <span className=" text-[#B7B7B7]">Транзакций 1200 шт</span>
             <span className=" text-[#B7B7B7]">Сумма 3 456 234.45₽</span>

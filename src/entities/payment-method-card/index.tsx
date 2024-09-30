@@ -4,6 +4,7 @@ interface ICard {
   img: string;
   name: string;
   margin?: string;
+  onClick?: () => void;
 }
 
 interface IPaymentMethodCardProps {
@@ -24,8 +25,9 @@ export const PaymentMethodCard = ({
         {cards.map((card, index) => {
           return (
             <div
+              onClick={card.onClick}
               key={index}
-              className={`${styles.card} flex flex-col items-center justify-between gap-2 border-[#D9D9D9] border-[1.5px] rounded-lg`}
+              className={`${styles.card} flex flex-col items-center justify-between gap-2 border-[#D9D9D9] border-[1.5px] rounded-lg cursor-pointer`}
             >
               <img
                 src={card.img}

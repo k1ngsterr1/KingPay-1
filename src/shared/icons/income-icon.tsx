@@ -7,8 +7,8 @@ interface IconProps {
 }
 
 const IncomeIcon: React.FC<IconProps> = ({
-  width = 32,
-  height = 33,
+  width = 30,
+  height = 30,
   fill = "#292D32",
 }) => (
   <svg

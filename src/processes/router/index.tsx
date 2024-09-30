@@ -5,6 +5,7 @@ import { Login } from "@pages/Login/Login";
 import { PaymentMethods } from "@pages/PaymentMethods";
 import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
 import { ControlPanel } from "@pages/ControlPanel";
+import { PaymentAcceptance } from "@pages/PaymentAcceptance";
 
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/login" />,
+  },
+  {
+    path: "/payment-acceptance",
+    element: <PaymentAcceptance />,
   },
   {
     path: "/registration",
