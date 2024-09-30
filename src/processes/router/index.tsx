@@ -1,11 +1,12 @@
+import { Project } from "@pages/Project";
+import { Registration } from "@pages/Registration/Registration";
 import { ForgotPassword } from "@pages/ForgotPassword/ForgotPassword";
 import { Login } from "@pages/Login/Login";
 import { PaymentMethods } from "@pages/PaymentMethods";
 import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { ControlPanel } from "@pages/ControlPanel";
 
-import { Project } from "@pages/Project";
-import { Registration } from "@pages/Registration/Registration";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/control-panel",
+    element: <ControlPanel />,
   },
   {
     path: "/personal-account",

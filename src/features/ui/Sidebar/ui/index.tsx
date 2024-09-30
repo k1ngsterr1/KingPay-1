@@ -33,7 +33,7 @@ export const Sidebar = () => {
 
   const handleFolderClick = () => {
     dispatch(setActive({ name: "folder" }));
-    navigate("/project");
+    navigate("/control-panel");
   };
 
   return (

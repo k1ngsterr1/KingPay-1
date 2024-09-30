@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Input } from "@shared/ui/Input";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
 import CartIcon from "@shared/icons/cart-icon";
 import { LineInput } from "@shared/ui/LineInput";
-import styles from "@widgets/project/styles.module.scss";
+import styles from "@widgets/Project/styles.module.scss";
 import qr from "@assets/image.png";
 import { Logo } from "@shared/ui/Logo";
 import logo from "@assets/short_logo.svg";

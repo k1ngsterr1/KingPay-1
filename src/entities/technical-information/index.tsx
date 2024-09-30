@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "@shared/ui/Input";
 import QuestionIcon from "@shared/icons/question-icon";
 import Switch from "@shared/ui/Switch";
-import styles from "@widgets/project/styles.module.scss";
+import styles from "@widgets/Project/styles.module.scss";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
 
 interface TechnicalInformationProps {

@@ -16,7 +16,7 @@ export const PersonalLayout: React.FC<IPersonalProps> = ({
       <Sidebar />
       <div className="w-[90%]  m-auto">
         <Header />
-        <Heading text={heading} margin="-mt-10 md:ml-[90px]" />
+        <Heading text={heading} margin=" md:ml-[90px] text-[42px] font-light" />
         {children}
       </div>
     </main>
