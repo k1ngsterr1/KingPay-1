@@ -48,7 +48,7 @@ export const PaymentMethods = ({ setSelectedPayment }) => {
             <hr className="border-t-2 border-[#D9D9D9] w-full" />
           </div>
           <div className="flex flex-col items-center">
-            <div className="rounded-full bg-primary w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
+            <div className="rounded-full bg-[#D9D9D9] w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
               <span>3</span>
             </div>
             <span className="mt-2 text-[#D9D9D9] text-lg">Оплата</span>

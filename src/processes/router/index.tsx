@@ -19,11 +19,11 @@ export const createAppRouter = (selectedPayment, setSelectedPayment) =>
       element: <Navigate to="/login" />,
     },
     {
-      path: "payment-failed",
+      path: "/payment-failed",
       element: <PaymentFailed />,
     },
     {
-      path: "payment-succeed",
+      path: "/payment-succeed",
       element: <PaymentSucceed />,
     },
     {

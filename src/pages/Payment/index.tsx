@@ -131,6 +131,7 @@ export const Payment = ({ selectedPayment }: PaymentAcceptanceProps) => {
               text="QR-код"
               width="w-full gap-4 mt-8"
               icon={<QRIcon />}
+              onClick={() => (window.location.href = "/payment-succeed")}
             />
           )}
         </div>
