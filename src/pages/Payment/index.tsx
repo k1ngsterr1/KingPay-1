@@ -3,32 +3,15 @@ import { Logo } from "@shared/ui/Logo";
 import styles from "@pages/PaymentMethods/styles.module.scss";
 import protectedIcon from "@assets/payment/protected.svg";
 import supportIcon from "@assets/payment/support.svg";
-import { Input } from "@shared/ui/Input";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
-import { useNavigate } from "react-router-dom";
+import CopyIcon from "@shared/icons/copy-icon";
+
 interface PaymentAcceptanceProps {
   selectedPayment: { img: string; name: string } | null;
 }
 
-const smsPaymentNames = ["Мегафон", "Билайн", "Теле 2", "МТС"];
-
-export const PaymentAcceptance = ({
-  selectedPayment,
-}: PaymentAcceptanceProps) => {
+export const Payment = ({ selectedPayment }: PaymentAcceptanceProps) => {
   const [currency, setCurrency] = useState("RUB");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleCurrencyChange = (newCurrency: string) => {
-    setCurrency(newCurrency);
-  };
-
-  const navigate = useNavigate();
-
-  const handlePaymentSelection = () => {
-    navigate("/payment", { state: { selectedPayment } });
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.container__form}>
@@ -61,18 +44,17 @@ export const PaymentAcceptance = ({
             <hr className="border-t-2 border-[#D9D9D9] w-full" />
           </div>
           <div className="flex flex-col items-center ">
-            <div className="rounded-full bg-[#D9D9D9] w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
+            <div className="rounded-full bg-primary w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
               <span>3</span>
             </div>
-            <span className="mt-2 text-[#D9D9D9] text-lg">Оплата</span>
+            <span className="mt-2 text-black text-lg">Оплата</span>
           </div>
         </div>
-        <div className="mt-16 mb-14 w-[45%]">
+        <div className="mt-16 w-[55%]">
           <span className="items-center flex justify-center text-lg font-light">
             К оплате
           </span>
-
-          <form className="mt-7 flex flex-col">
+          <div className="mt-7 flex flex-col">
             <div className="flex flex-row items-center">
               {selectedPayment && (
                 <img
@@ -91,63 +73,40 @@ export const PaymentAcceptance = ({
                   : "1 200 ₸"}
               </span>
             </div>
-            {selectedPayment &&
-              selectedPayment.name !== "Bitcoin" &&
-              !smsPaymentNames.includes(selectedPayment.name) && (
-                <div className="flex flex-row mt-5 gap-4">
-                  <button
-                    type="button"
-                    onClick={() => handleCurrencyChange("RUB")}
-                    className={`px-5 py-2 border-[1px] rounded-lg ${
-                      currency === "RUB" ? "border-primary" : "border-gray-300"
-                    }`}
-                  >
-                    RUB
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleCurrencyChange("UAH")}
-                    className={`px-5 border-[1px] rounded-lg ${
-                      currency === "UAH" ? "border-primary" : "border-gray-300"
-                    }`}
-                  >
-                    UAH
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleCurrencyChange("KZT")}
-                    className={`px-5 border-[1px] rounded-lg ${
-                      currency === "KZT" ? "border-primary" : "border-gray-300"
-                    }`}
-                  >
-                    KZT
-                  </button>
-                </div>
-              )}
-            {smsPaymentNames.includes(selectedPayment?.name || "") && (
-              <Input
-                placeholder="Номер телефона"
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                margin="mt-5"
-                width="w-full"
-              />
-            )}
-            <Input
-              placeholder="Эл. почта"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              margin="mt-5"
-              width="w-full"
-            />
-            <PrimaryButton
-              text="Оплатить"
-              width="w-full mt-8"
-              onClick={handlePaymentSelection}
-            />
-          </form>
+            <div className=" flex flex-col gap-2 my-6">
+              <span className="text-base text-[#6A6A6A] font-light">
+                Номер карты
+              </span>
+              <div className=" flex flex-row justify-between w-full">
+                <span className=" text-base font-bold">
+                  45454 6566 78787 3223
+                </span>
+                <button className=" cursor-pointer">
+                  <CopyIcon />
+                </button>
+              </div>
+              <div className=" flex flex-col gap-2 mt-6">
+                <span className="text-base text-[#6A6A6A] font-light">
+                  Статус
+                </span>
+                <span className=" text-xl text-[#EB001B] font-normal">
+                  Не оплачен
+                </span>
+              </div>
+              <div className=" w-full bg-[#F8F8F8] h-22 px-6 py-4 rounded-[10px] mt-4">
+                <p className="text-[#6A6A6A] text-sm w-[86%]">
+                  Совершите перевод по реквизитам, указанные выше. Оплата будет
+                  засчитана автоматически после получения перевода
+                </p>
+              </div>
+              <div className=" w-full bg-[#FFECEE] h-22 px-6 py-4 rounded-[10px] mt-2">
+                <p className="text-[#6A6A6A] text-sm w-[86%]">
+                  Необходимо перевести точную сумму одной транзакцией, в
+                  противном случае средства могут быть утеряны
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="mt-12 flex flex-row items-center justify-between w-[90%] mb-12">
           <div className="flex flex-row gap-3">

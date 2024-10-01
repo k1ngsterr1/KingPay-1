@@ -7,6 +7,7 @@ import { PaymentMethods } from "@pages/PaymentMethods";
 import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
 import { ControlPanel } from "@pages/ControlPanel";
 import { PaymentAcceptance } from "@pages/PaymentAcceptance";
+import { Payment } from "@pages/Payment";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const createAppRouter = (selectedPayment, setSelectedPayment) =>
@@ -18,6 +19,10 @@ export const createAppRouter = (selectedPayment, setSelectedPayment) =>
     {
       path: "/payment-acceptance",
       element: <PaymentAcceptance selectedPayment={selectedPayment} />,
+    },
+    {
+      path: "/payment",
+      element: <Payment selectedPayment={selectedPayment} />,
     },
     {
       path: "/registration",
