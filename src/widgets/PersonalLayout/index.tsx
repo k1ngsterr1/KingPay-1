@@ -24,6 +24,7 @@ export const PersonalLayout: React.FC<IPersonalProps> = ({
           text={heading}
           margin={`md:ml-[90px] font-light ${styles.heading}`}
         />
+        {children}
       </div>
     </main>
   );
