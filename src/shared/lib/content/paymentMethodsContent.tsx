@@ -43,7 +43,7 @@ export const cryptoCurrencies = [
   { img: bitcoin, name: "Bitcoin", margin: "mt-5" },
   { img: ethereum, name: "Ethereum", margin: "mt-5" },
   { img: bitcoinCash, name: "Bitcoin Cash", margin: "mt-5" },
-  { img: litcoin, name: "Litcoin", margin: "mt-5" },
+  { img: litcoin, name: "Litecoin", margin: "mt-5" },
   { img: dash, name: "Dash", margin: "mt-5" },
   { img: zcash, name: "Zcash", margin: "mt-5" },
   { img: dogecoin, name: "Dogecoin", margin: "mt-5" },

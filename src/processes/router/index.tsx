@@ -8,6 +8,8 @@ import { PersonalAccount } from "@pages/PersonalAccount/PersonalAccount";
 import { ControlPanel } from "@pages/ControlPanel";
 import { PaymentAcceptance } from "@pages/PaymentAcceptance";
 import { Payment } from "@pages/Payment";
+import { PaymentFailed } from "@pages/PaymentFailed";
+import { PaymentSucceed } from "@pages/PaymentSucceed";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const createAppRouter = (selectedPayment, setSelectedPayment) =>
@@ -15,6 +17,14 @@ export const createAppRouter = (selectedPayment, setSelectedPayment) =>
     {
       path: "/",
       element: <Navigate to="/login" />,
+    },
+    {
+      path: "payment-failed",
+      element: <PaymentFailed />,
+    },
+    {
+      path: "payment-succeed",
+      element: <PaymentSucceed />,
     },
     {
       path: "/payment-acceptance",

@@ -44,7 +44,7 @@ export const Registration = () => {
             </button>
           ))}
         </div>
-        <div className="flex flex-col mt-6">
+        <div className="flex flex-col mt-6 ">
           <Input placeholder="Ф.И.О." type="text" />
           <Input placeholder="Эл. почта" type="email" margin="mt-4" />
           <Input placeholder="Пароль" type="password" margin="mt-4" />

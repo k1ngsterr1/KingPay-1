@@ -36,8 +36,13 @@ export const Login = () => {
       >
         <Logo />
         <div className=" mt-24 items-center justify-center flex flex-col">
-          <Input placeholder="Эл. почта" type="email" />
-          <Input placeholder="Пароль" type="password" margin="mt-6" />
+          <Input placeholder="Эл. почта" type="email" width="w-full" />
+          <Input
+            placeholder="Пароль"
+            type="password"
+            margin="mt-6"
+            width="w-full"
+          />
           <PrimaryButton text="Войти" margin="mt-4" onClick={handleRedirect} />
           <div className=" flex flex-row items-center justify-between w-[100%] mt-4 ">
             <TextButton
