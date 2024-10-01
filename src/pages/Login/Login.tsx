@@ -23,7 +23,7 @@ export const Login = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} bg-white`}>
       <div className={styles.container__image}>
         <img
           src={ScreenImage}
