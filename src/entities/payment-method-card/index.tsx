@@ -4,19 +4,20 @@ interface ICard {
   img: string;
   name: string;
   margin?: string;
-  onClick?: () => void;
 }
 
 interface IPaymentMethodCardProps {
   title: string;
   cards: ICard[];
   margin?: string;
+  onSelect: (card: ICard) => void;
 }
 
 export const PaymentMethodCard = ({
   title,
   cards,
   margin,
+  onSelect, // Добавляем onSelect в пропсы
 }: IPaymentMethodCardProps) => {
   return (
     <div className={`flex flex-col items-center ${margin}`}>
@@ -25,7 +26,7 @@ export const PaymentMethodCard = ({
         {cards.map((card, index) => {
           return (
             <div
-              onClick={card.onClick}
+              onClick={() => onSelect(card)}
               key={index}
               className={`${styles.card} flex flex-col items-center justify-between gap-2 border-[#D9D9D9] border-[1.5px] rounded-lg cursor-pointer`}
             >

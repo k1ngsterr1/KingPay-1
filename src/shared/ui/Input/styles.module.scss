@@ -42,6 +42,7 @@
   }
 
   &__icon {
+    @apply mr-2;
     font-size: clamp(7px, 14 / 992 * 100vw, 24px);
 
     @include respond-to("lg") {
@@ -74,8 +75,8 @@
     background-color: transparent;
     outline: none;
     border: none;
-    font-size: clamp(5px, 10 / 992 * 100vw, 20px);
     @apply pl-2;
+    @apply text-base;
 
     &:focus {
       outline: none;

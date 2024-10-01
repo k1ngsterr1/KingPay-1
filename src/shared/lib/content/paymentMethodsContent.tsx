@@ -23,7 +23,11 @@ import tele2 from "@assets/payment/tele2.svg";
 import mts from "@assets/payment/mts.svg";
 
 export const bankCards = [
-  { img: visa, name: "VISA", margin: "mt-8" },
+  {
+    img: visa,
+    name: "VISA",
+    margin: "mt-8",
+  },
   { img: mastercard, name: "Mastercard", margin: "mt-6" },
   { img: sbp, name: "СБП", margin: "mt-4" },
 ];
