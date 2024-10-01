@@ -3,15 +3,14 @@ import { Logo } from "@shared/ui/Logo";
 import styles from "@pages/PaymentMethods/styles.module.scss";
 import protectedIcon from "@assets/payment/protected.svg";
 import supportIcon from "@assets/payment/support.svg";
-import { Input } from "@shared/ui/Input";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
-import { useNavigate } from "react-router-dom";
+import CopyIcon from "@shared/icons/copy-icon";
+import QRIcon from "@shared/icons/qr-icon";
 
 interface PaymentAcceptanceProps {
   selectedPayment: { img: string; name: string } | null;
 }
 
-const smsPaymentNames = ["Мегафон", "Билайн", "Теле 2", "МТС"];
 const cryptoPaymentNames = [
   "Bitcoin",
   "Ethereum",
@@ -24,38 +23,10 @@ const cryptoPaymentNames = [
   "Tonecoin",
 ];
 
-export const PaymentAcceptance = ({
-  selectedPayment,
-}: PaymentAcceptanceProps) => {
+export const Payment = ({ selectedPayment }: PaymentAcceptanceProps) => {
   const [currency, setCurrency] = useState("RUB");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
 
-  const navigate = useNavigate();
-
-  const handleCurrencyChange = (newCurrency: string) => {
-    setCurrency(newCurrency);
-  };
-
-  const handlePaymentSelection = () => {
-    navigate("/payment", { state: { selectedPayment } });
-  };
-
-  const getFormattedAmount = () => {
-    if (selectedPayment && cryptoPaymentNames.includes(selectedPayment.name)) {
-      return "0.00016500 BTC";
-    }
-
-    switch (currency) {
-      case "UAH":
-        return "380 ₴";
-      case "KZT":
-        return "1 200 ₸";
-      case "RUB":
-      default:
-        return "1 079 ₽";
-    }
-  };
+  const isCryptoPayment = (name: string) => cryptoPaymentNames.includes(name);
 
   return (
     <div className={styles.container}>
@@ -84,18 +55,18 @@ export const PaymentAcceptance = ({
             <hr className="border-t-2 border-[#D9D9D9] w-full" />
           </div>
           <div className="flex flex-col items-center">
-            <div className="rounded-full bg-[#D9D9D9] w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
+            <div className="rounded-full bg-primary w-16 h-16 text-white flex items-center justify-center text-3xl font-bold">
               <span>3</span>
             </div>
-            <span className="mt-2 text-[#D9D9D9] text-lg">Оплата</span>
+            <span className="mt-2 text-black text-lg">Оплата</span>
           </div>
         </div>
 
-        <div className="mt-16 mb-14 w-[45%]">
+        <div className="mt-16 w-[55%]">
           <span className="items-center flex justify-center text-lg font-light">
             К оплате
           </span>
-          <form className="mt-7 flex flex-col">
+          <div className="mt-7 flex flex-col">
             <div className="flex flex-row items-center">
               {selectedPayment && (
                 <img
@@ -104,54 +75,65 @@ export const PaymentAcceptance = ({
                   className="w-8 h-8 mr-5"
                 />
               )}
-              <span className="text-lg font-bold">{getFormattedAmount()}</span>
+              <span className="text-lg font-bold">
+                {selectedPayment && isCryptoPayment(selectedPayment.name)
+                  ? "0.00016500 BTC"
+                  : currency === "RUB"
+                  ? "1 079 ₽"
+                  : currency === "UAH"
+                  ? "380 ₴"
+                  : "1 200 ₸"}
+              </span>
             </div>
 
-            {selectedPayment &&
-              !cryptoPaymentNames.includes(selectedPayment.name) &&
-              !smsPaymentNames.includes(selectedPayment.name) && (
-                <div className="flex flex-row mt-5 gap-4">
-                  {["RUB", "UAH", "KZT"].map((curr) => (
-                    <button
-                      type="button"
-                      key={curr}
-                      onClick={() => handleCurrencyChange(curr)}
-                      className={`px-5 py-2 border-[1px] rounded-lg ${
-                        currency === curr ? "border-primary" : "border-gray-300"
-                      }`}
-                    >
-                      {curr}
-                    </button>
-                  ))}
-                </div>
-              )}
+            <div className="flex flex-col gap-2 my-6">
+              <span className="text-base text-[#6A6A6A] font-light">
+                {selectedPayment && isCryptoPayment(selectedPayment.name)
+                  ? "Адрес для оплаты"
+                  : "Номер карты"}
+              </span>
+              <div className="flex flex-row justify-between w-full">
+                <span className="text-base font-bold">
+                  {isCryptoPayment(selectedPayment?.name || "")
+                    ? "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy"
+                    : "4545 4656 7878 3223"}
+                </span>
+                <button className="cursor-pointer">
+                  <CopyIcon />
+                </button>
+              </div>
+            </div>
 
-            {smsPaymentNames.includes(selectedPayment?.name || "") && (
-              <Input
-                placeholder="Номер телефона"
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                margin="mt-5"
-                width="w-full"
-              />
-            )}
+            <div className="flex flex-col gap-2 mt-6">
+              <span className="text-base text-[#6A6A6A] font-light">
+                Статус
+              </span>
+              <span className="text-xl text-[#EB001B] font-normal">
+                Не оплачен
+              </span>
+            </div>
 
-            <Input
-              placeholder="Эл. почта"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              margin="mt-5"
-              width="w-full"
-            />
-
+            <div className="w-full bg-[#F8F8F8] h-22 px-6 py-4 rounded-[10px] mt-4">
+              <p className="text-[#6A6A6A] text-sm w-[86%]">
+                Совершите перевод по реквизитам, указанным выше. Оплата будет
+                засчитана автоматически после получения перевода.
+              </p>
+            </div>
+            <div className="w-full bg-[#FFECEE] h-22 px-6 py-4 rounded-[10px] mt-2">
+              <p className="text-[#6A6A6A] text-sm w-[86%]">
+                Необходимо перевести точную сумму одной транзакцией, в противном
+                случае средства могут быть утеряны.
+              </p>
+            </div>
+          </div>
+          {isCryptoPayment(selectedPayment?.name || "") && (
             <PrimaryButton
-              text="Оплатить"
-              width="w-full mt-8"
-              onClick={handlePaymentSelection}
+              text="QR-код"
+              width="w-full gap-4 mt-8"
+              icon={<QRIcon />}
+              onClick={() => (window.location.href = "/payment-succeed")}
             />
-          </form>
+          )}
         </div>
 
         <div className="mt-12 flex flex-row items-center justify-between w-[90%] mb-12">
