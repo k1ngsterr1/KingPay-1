@@ -12,7 +12,7 @@ export const APIScreen = () => {
   const [isApiEnabled, setIsApiEnabled] = useState(false);
 
   return (
-    <div className="flex justify-center items-start mt-16">
+    <div className="flex justify-center items-start mt-16  ml-24">
       <TabNavigation />
       <div className="flex items-start gap-10 ml-10">
         {/* Основной блок настроек API */}

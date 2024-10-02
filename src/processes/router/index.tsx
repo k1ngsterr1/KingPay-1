@@ -9,6 +9,8 @@ import { PaymentAcceptance } from "@pages/PaymentAcceptance";
 import { Payment } from "@pages/Payment";
 import { PaymentFailed } from "@pages/PaymentFailed";
 import { PaymentSucceed } from "@pages/PaymentSucceed";
+import { Support } from "@pages/Support/Support";
+import { Withdraw } from "@pages/Withdraw/Withdraw";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const createAppRouter = (selectedPayment, setSelectedPayment) =>
@@ -16,6 +18,26 @@ export const createAppRouter = (selectedPayment, setSelectedPayment) =>
     {
       path: "/",
       element: <Navigate to="/login" />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/registration",
+      element: <Registration />,
+    },
+    {
+      path: "/forgot-password",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "/personal-account",
+      element: <PersonalAccount />,
+    },
+    {
+      path: "/payment-methods",
+      element: <PaymentMethods setSelectedPayment={setSelectedPayment} />,
     },
     {
       path: "/payment-failed",
@@ -34,31 +56,19 @@ export const createAppRouter = (selectedPayment, setSelectedPayment) =>
       element: <Payment selectedPayment={selectedPayment} />,
     },
     {
-      path: "/registration",
-      element: <Registration />,
+      path: "/support",
+      element: <Support />,
     },
     {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/control-panel",
-      element: <ControlPanel />,
-    },
-    {
-      path: "/personal-account",
-      element: <PersonalAccount />,
-    },
-    {
-      path: "/payment-methods",
-      element: <PaymentMethods setSelectedPayment={setSelectedPayment} />,
+      path: "/withdraw",
+      element: <Withdraw />,
     },
     {
       path: "/project",
       element: <Project />,
     },
     {
-      path: "/forgot-password",
-      element: <ForgotPassword />,
+      path: "/control-panel",
+      element: <ControlPanel />,
     },
   ]);
