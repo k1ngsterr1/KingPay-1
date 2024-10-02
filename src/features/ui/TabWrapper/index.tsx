@@ -1,3 +1,4 @@
+import { KebabMenu } from "@shared/ui/Kebab";
 import React from "react";
 
 interface WrapperProps {
@@ -13,7 +14,10 @@ const WrapperComponent: React.FC<WrapperProps> = ({
 }) => {
   return (
     <div className={`bg-white rounded-xl p-4 shadow-sm ${className}`}>
-      {title && <h2 className="text-xl font-normal mb-4">{title}</h2>}
+      <div className="flex justify-between items-center">
+        {title && <h2 className="text-xl font-normal mb-4">{title}</h2>}
+        <KebabMenu />
+      </div>
       <div>{children}</div>
     </div>
   );
