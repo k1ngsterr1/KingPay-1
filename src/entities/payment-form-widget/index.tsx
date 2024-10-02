@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Input } from "@shared/ui/Input";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
 import CartIcon from "@shared/icons/cart-icon";
 import { LineInput } from "@shared/ui/LineInput";
-import styles from "@widgets/project/styles.module.scss";
+import styles from "@widgets/Project/styles.module.scss";
 import qr from "@assets/image.png";
 import { Logo } from "@shared/ui/Logo";
 import logo from "@assets/short_logo.svg";
@@ -22,7 +22,7 @@ const PaymentFormWidget = () => {
     <>
       <div className="bg-[#FFFFFF] mt-8 flex rounded-[20px] w-full">
         <div className="p-10 mb-10 w-full">
-          <span className="text-3xl font-light">Форма оплаты</span>
+          <span className="text-4xl font-light">Форма оплаты</span>
           <div className="flex flex-row mt-12 w-full justify-between">
             <div className=" flex flex-col">
               <div className="flex flex-row items-center gap-24">

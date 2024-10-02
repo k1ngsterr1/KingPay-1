@@ -23,7 +23,11 @@ import tele2 from "@assets/payment/tele2.svg";
 import mts from "@assets/payment/mts.svg";
 
 export const bankCards = [
-  { img: visa, name: "VISA", margin: "mt-8" },
+  {
+    img: visa,
+    name: "VISA",
+    margin: "mt-8",
+  },
   { img: mastercard, name: "Mastercard", margin: "mt-6" },
   { img: sbp, name: "СБП", margin: "mt-4" },
 ];
@@ -39,7 +43,7 @@ export const cryptoCurrencies = [
   { img: bitcoin, name: "Bitcoin", margin: "mt-5" },
   { img: ethereum, name: "Ethereum", margin: "mt-5" },
   { img: bitcoinCash, name: "Bitcoin Cash", margin: "mt-5" },
-  { img: litcoin, name: "Litcoin", margin: "mt-5" },
+  { img: litcoin, name: "Litecoin", margin: "mt-5" },
   { img: dash, name: "Dash", margin: "mt-5" },
   { img: zcash, name: "Zcash", margin: "mt-5" },
   { img: dogecoin, name: "Dogecoin", margin: "mt-5" },

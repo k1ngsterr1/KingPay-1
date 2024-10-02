@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IInputProps {
   placeholder: string;
-  type?: "text" | "password" | "email";
+  type?: "text" | "password" | "email" | "tel";
   margin?: string;
   width?: string;
   isIcon?: boolean;
   fontSize?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = ({
@@ -20,6 +22,8 @@ export const Input = ({
   width,
   isIcon = true,
   fontSize,
+  value,
+  onChange,
 }: IInputProps) => {
   return (
     <div className={`${styles.container} ${margin} ${width}`}>
@@ -36,9 +40,11 @@ export const Input = ({
         />
       )}
       <input
+        value={value}
         placeholder={placeholder}
         type={type}
         className={`${styles.container__input} ${fontSize}`}
+        onChange={onChange}
       />
     </div>
   );

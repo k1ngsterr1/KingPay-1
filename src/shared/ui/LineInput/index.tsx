@@ -10,7 +10,7 @@ export const LineInput: React.FC<ILineInput> = ({ labelText, width, gap }) => {
   return (
     <div className={`${styles.line_input} ${width} ${gap}`}>
       <span className={styles.line_input__text}>{labelText}</span>
-      <input className={styles.line_input__line} />
+      <input className={`${styles.line_input__line} outline-none`} />
     </div>
   );
 };

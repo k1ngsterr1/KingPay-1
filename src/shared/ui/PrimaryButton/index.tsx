@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 interface IButtonProps {
@@ -6,6 +7,7 @@ interface IButtonProps {
   type?: "button" | "submit" | "reset";
   width?: string;
   onClick?: () => void;
+  icon?: ReactNode;
 }
 
 export const PrimaryButton = ({
@@ -14,13 +16,15 @@ export const PrimaryButton = ({
   type = "submit",
   width,
   onClick,
+  icon,
 }: IButtonProps) => {
   return (
     <button
-      className={`${styles.button} ${margin} ${width}`}
+      className={`${styles.button} ${margin} ${width} text-base flex items-center`}
       type={type}
       onClick={onClick}
     >
+      {icon && icon}
       {text}
     </button>
   );

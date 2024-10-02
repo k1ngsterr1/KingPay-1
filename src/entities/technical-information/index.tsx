@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "@shared/ui/Input";
 import QuestionIcon from "@shared/icons/question-icon";
 import Switch from "@shared/ui/Switch";
-import styles from "@widgets/project/styles.module.scss";
+import styles from "@widgets/Project/styles.module.scss";
 import { PrimaryButton } from "@shared/ui/PrimaryButton";
 
 interface TechnicalInformationProps {
@@ -31,7 +31,7 @@ const TechnicalInformation: React.FC<TechnicalInformationProps> = ({
 }) => {
   return (
     <div className="p-10 mb-8">
-      <span className="text-3xl font-light">Техническая информация</span>
+      <span className="text-4xl font-light">Техническая информация</span>
       <div className="flex flex-col mt-12">
         <div className="flex flex-row gap-4 items-center">
           <span className="w-1/4">ID проекта</span>
