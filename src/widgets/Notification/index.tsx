@@ -45,7 +45,7 @@ export const NotificationScreen = () => {
             title="Электронная почта"
             className="w-[470px] flex flex-col p-8 bg-white rounded-lg !gap-12 shadow-md"
           >
-            <div className="w-full flex border-2 mb-8 items-center justify-between">
+            <div className="w-full flex  mb-8 items-center justify-between">
               <span className="text-xs">Успешная авторизация</span>
               <Switch
                 isChecked={emailSettings.successfulAuth}

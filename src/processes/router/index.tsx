@@ -6,6 +6,8 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { Project } from "@pages/Project";
 import { Registration } from "@pages/Registration/Registration";
+import { Support } from "@pages/Support/Support";
+import { Withdraw } from "@pages/Withdraw/Withdraw";
 
 export const router = createBrowserRouter([
   {
@@ -15,10 +17,17 @@ export const router = createBrowserRouter([
   {
     path: "/registration",
     element: <Registration />,
+  },  {
+    path: "/withdraw",
+    element: <Withdraw />,
   },
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/withdraw",
+    element: <Withdraw />,
   },
   {
     path: "/personal-account",
@@ -27,6 +36,10 @@ export const router = createBrowserRouter([
   {
     path: "/payment-methods",
     element: <PaymentMethods />,
+  },
+  {
+    path: "/support",
+    element: <Support />,
   },
   {
     path: "/project",
