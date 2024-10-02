@@ -30,6 +30,11 @@ export const Sidebar = () => {
 
   const handleFolderClick = () => {
     dispatch(setActive({ name: "folder" }));
+    navigate("/withdraw");
+  };
+
+  const handleShareClick = () => {
+    dispatch(setActive({ name: "share" }));
     navigate("/control-panel");
   };
 
@@ -43,7 +48,7 @@ export const Sidebar = () => {
           )}
           <BigFolderIcon
             color={activeCategory === "folder" ? "black" : "#6A6A6A"}
-            onClick={() => dispatch(setActive({ name: "folder" }))}
+            onClick={() => handleFolderClick()}
           />
         </div>
         <div className="flex">
@@ -52,7 +57,7 @@ export const Sidebar = () => {
           )}
           <UploadIcon
             color={activeCategory === "share" ? "black" : "#6A6A6A"}
-            onClick={() => dispatch(setActive({ name: "share" }))}
+            onClick={() => handleShareClick()}
           />
         </div>
         <div className="flex">
@@ -61,7 +66,7 @@ export const Sidebar = () => {
           )}
           <BigUserIcon
             color={activeCategory === "user" ? "black" : "#6A6A6A"}
-            onClick={() => dispatch(setActive({ name: "user" }))}
+            onClick={() => handleUserClick}
           />
         </div>
       </nav>

@@ -15,7 +15,7 @@ export const Passport = () => {
         <LineInput labelText="Серия и номер" gap="gap-8" />
       </div>
       <div className="flex flex-col items-center justify-center">
-        <Note>
+        <Note width="">
           <p className="text-[#6A6A6A] text-base">
             Для изменения данных необходимо{" "}
             <span className="text-primary">создать тикет {""}</span>с запросом и
